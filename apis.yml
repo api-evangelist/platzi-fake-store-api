@@ -6,8 +6,7 @@ type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
-tags:
-  - API
+tags: []
 created: '2025-02-24'
 modified: '2025-02-24'
 url: >-
@@ -19,8 +18,7 @@ apis:
     description: >-
       Your API for your e-commerce or shopping website prototype.
     humanURL: ' https://fakeapi.platzi.com/'
-    tags:
-      - API
+    tags: []
     properties:
       - type: Documentation
         url: ' https://fakeapi.platzi.com/'
