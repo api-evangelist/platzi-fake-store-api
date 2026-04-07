@@ -1,6 +1,7 @@
 aid: platzi-fake-store-api
 name: Platzi Fake Store API
-description: 'Your API for your e-commerce or shopping website prototype. '
+description: >-
+  Your API for your e-commerce or shopping website prototype.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -15,7 +16,8 @@ specificationVersion: '0.19'
 apis:
   - aid: platzi-fake-store-api:platzi-fake-store-api
     name: Platzi Fake Store API
-    description: 'Your API for your e-commerce or shopping website prototype. '
+    description: >-
+      Your API for your e-commerce or shopping website prototype.
     humanURL: ' https://fakeapi.platzi.com/'
     tags:
       - API
