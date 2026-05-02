@@ -1,0 +1,541 @@
+openapi: 3.0.3
+info:
+  title: Platzi Fake Store API
+  description: >-
+    A free, fake REST API for testing and prototyping e-commerce or shopping
+    site applications. Provides products, categories, users, files, and JWT
+    authentication endpoints.
+  version: 1.0.0
+  contact:
+    name: Platzi Fake Store API
+    url: https://fakeapi.platzi.com/
+servers:
+  - url: https://api.escuelajs.co/api/v1
+    description: Public sandbox
+tags:
+  - name: Products
+  - name: Categories
+  - name: Users
+  - name: Auth
+  - name: Files
+paths:
+  /products:
+    get:
+      tags: [Products]
+      summary: List products
+      operationId: listProducts
+      parameters:
+        - in: query
+          name: offset
+          schema: { type: integer }
+        - in: query
+          name: limit
+          schema: { type: integer }
+        - in: query
+          name: title
+          schema: { type: string }
+        - in: query
+          name: price
+          schema: { type: number }
+        - in: query
+          name: price_min
+          schema: { type: number }
+        - in: query
+          name: price_max
+          schema: { type: number }
+        - in: query
+          name: categoryId
+          schema: { type: integer }
+      responses:
+        '200':
+          description: A list of products
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Product' }
+    post:
+      tags: [Products]
+      summary: Create product
+      operationId: createProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ProductCreate' }
+      responses:
+        '201':
+          description: Product created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Product' }
+  /products/{id}:
+    parameters:
+      - $ref: '#/components/parameters/ProductId'
+    get:
+      tags: [Products]
+      summary: Get product by id
+      operationId: getProduct
+      responses:
+        '200':
+          description: A product
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Product' }
+    put:
+      tags: [Products]
+      summary: Update product
+      operationId: updateProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ProductUpdate' }
+      responses:
+        '200':
+          description: Updated product
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Product' }
+    delete:
+      tags: [Products]
+      summary: Delete product
+      operationId: deleteProduct
+      responses:
+        '200':
+          description: Boolean true on success
+          content:
+            application/json:
+              schema: { type: boolean }
+  /products/slug/{slug}:
+    parameters:
+      - in: path
+        name: slug
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Products]
+      summary: Get product by slug
+      operationId: getProductBySlug
+      responses:
+        '200':
+          description: A product
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Product' }
+  /products/{id}/related:
+    parameters:
+      - $ref: '#/components/parameters/ProductId'
+    get:
+      tags: [Products]
+      summary: Get related products by id
+      operationId: getRelatedProducts
+      responses:
+        '200':
+          description: Related products
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Product' }
+  /products/slug/{slug}/related:
+    parameters:
+      - in: path
+        name: slug
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Products]
+      summary: Get related products by slug
+      operationId: getRelatedProductsBySlug
+      responses:
+        '200':
+          description: Related products
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Product' }
+  /categories:
+    get:
+      tags: [Categories]
+      summary: List categories
+      operationId: listCategories
+      parameters:
+        - in: query
+          name: limit
+          schema: { type: integer }
+      responses:
+        '200':
+          description: A list of categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Category' }
+    post:
+      tags: [Categories]
+      summary: Create category
+      operationId: createCategory
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CategoryCreate' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Category' }
+  /categories/{id}:
+    parameters:
+      - $ref: '#/components/parameters/CategoryId'
+    get:
+      tags: [Categories]
+      summary: Get category
+      operationId: getCategory
+      responses:
+        '200':
+          description: A category
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Category' }
+    put:
+      tags: [Categories]
+      summary: Update category
+      operationId: updateCategory
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/CategoryCreate' }
+      responses:
+        '200':
+          description: Updated category
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Category' }
+    delete:
+      tags: [Categories]
+      summary: Delete category
+      operationId: deleteCategory
+      responses:
+        '200':
+          description: Boolean true
+          content:
+            application/json:
+              schema: { type: boolean }
+  /categories/slug/{slug}:
+    parameters:
+      - in: path
+        name: slug
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Categories]
+      summary: Get category by slug
+      operationId: getCategoryBySlug
+      responses:
+        '200':
+          description: A category
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Category' }
+  /categories/{id}/products:
+    parameters:
+      - $ref: '#/components/parameters/CategoryId'
+    get:
+      tags: [Categories]
+      summary: List products in a category
+      operationId: listCategoryProducts
+      responses:
+        '200':
+          description: Products
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Product' }
+  /users:
+    get:
+      tags: [Users]
+      summary: List users
+      operationId: listUsers
+      parameters:
+        - in: query
+          name: limit
+          schema: { type: integer }
+      responses:
+        '200':
+          description: A list of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/User' }
+    post:
+      tags: [Users]
+      summary: Create user
+      operationId: createUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/UserCreate' }
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/User' }
+  /users/{id}:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      tags: [Users]
+      summary: Get user
+      operationId: getUser
+      responses:
+        '200':
+          description: A user
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/User' }
+    put:
+      tags: [Users]
+      summary: Update user
+      operationId: updateUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/UserCreate' }
+      responses:
+        '200':
+          description: Updated user
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/User' }
+  /users/is-available:
+    post:
+      tags: [Users]
+      summary: Check email availability
+      operationId: checkEmailAvailability
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email]
+              properties:
+                email: { type: string, format: email }
+      responses:
+        '200':
+          description: Availability response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  isAvailable: { type: boolean }
+  /auth/login:
+    post:
+      tags: [Auth]
+      summary: Login and obtain JWT tokens
+      operationId: login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: { type: string, format: email }
+                password: { type: string, format: password }
+      responses:
+        '201':
+          description: Tokens
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token: { type: string }
+                  refresh_token: { type: string }
+  /auth/profile:
+    get:
+      tags: [Auth]
+      summary: Get authenticated user profile
+      operationId: getProfile
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Authenticated user
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/User' }
+  /auth/refresh-token:
+    post:
+      tags: [Auth]
+      summary: Refresh access token
+      operationId: refreshToken
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [refreshToken]
+              properties:
+                refreshToken: { type: string }
+      responses:
+        '201':
+          description: New tokens
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token: { type: string }
+                  refresh_token: { type: string }
+  /files/upload:
+    post:
+      tags: [Files]
+      summary: Upload a file
+      operationId: uploadFile
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Upload result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  originalname: { type: string }
+                  filename: { type: string }
+                  location: { type: string, format: uri }
+  /files/{filename}:
+    parameters:
+      - in: path
+        name: filename
+        required: true
+        schema: { type: string }
+    get:
+      tags: [Files]
+      summary: Retrieve uploaded file
+      operationId: getFile
+      responses:
+        '200':
+          description: The file content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    ProductId:
+      in: path
+      name: id
+      required: true
+      schema: { type: integer }
+    CategoryId:
+      in: path
+      name: id
+      required: true
+      schema: { type: integer }
+    UserId:
+      in: path
+      name: id
+      required: true
+      schema: { type: integer }
+  schemas:
+    Product:
+      type: object
+      properties:
+        id: { type: integer }
+        title: { type: string }
+        slug: { type: string }
+        price: { type: number }
+        description: { type: string }
+        category: { $ref: '#/components/schemas/Category' }
+        images:
+          type: array
+          items: { type: string, format: uri }
+        creationAt: { type: string, format: date-time }
+        updatedAt: { type: string, format: date-time }
+    ProductCreate:
+      type: object
+      required: [title, price, description, categoryId, images]
+      properties:
+        title: { type: string }
+        price: { type: number }
+        description: { type: string }
+        categoryId: { type: integer }
+        images:
+          type: array
+          items: { type: string, format: uri }
+    ProductUpdate:
+      type: object
+      properties:
+        title: { type: string }
+        price: { type: number }
+        description: { type: string }
+        categoryId: { type: integer }
+        images:
+          type: array
+          items: { type: string, format: uri }
+    Category:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string }
+        slug: { type: string }
+        image: { type: string, format: uri }
+    CategoryCreate:
+      type: object
+      required: [name, image]
+      properties:
+        name: { type: string }
+        image: { type: string, format: uri }
+    User:
+      type: object
+      properties:
+        id: { type: integer }
+        email: { type: string, format: email }
+        password: { type: string }
+        name: { type: string }
+        role:
+          type: string
+          enum: [customer, admin]
+        avatar: { type: string, format: uri }
+    UserCreate:
+      type: object
+      required: [name, email, password, avatar]
+      properties:
+        name: { type: string }
+        email: { type: string, format: email }
+        password: { type: string, format: password }
+        avatar: { type: string, format: uri }
+        role:
+          type: string
+          enum: [customer, admin]
