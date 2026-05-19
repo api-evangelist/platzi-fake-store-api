@@ -1,0 +1,269 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Platzi Fake Store API — Categories
+  description: 'Platzi Fake Store API — Categories. 7 operations. Lead operation: List categories. Self-contained Naftiko
+    capability covering one Platzi Fake Store Api business surface.'
+  tags:
+  - Platzi Fake Store Api
+  - Categories
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLATZI_FAKE_STORE_API_API_KEY: PLATZI_FAKE_STORE_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platzi-fake-store-categories
+    baseUri: https://api.escuelajs.co/api/v1
+    description: Platzi Fake Store API — Categories business capability. Self-contained, no shared references.
+    resources:
+    - name: categories
+      path: /categories
+      operations:
+      - name: listcategories
+        method: GET
+        description: List categories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: limit
+          in: query
+          type: integer
+      - name: createcategory
+        method: POST
+        description: Create category
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: categories-slug-slug
+      path: /categories/slug/{slug}
+      operations:
+      - name: getcategorybyslug
+        method: GET
+        description: Get category by slug
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: categories-id
+      path: /categories/{id}
+      operations:
+      - name: getcategory
+        method: GET
+        description: Get category
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecategory
+        method: PUT
+        description: Update category
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletecategory
+        method: DELETE
+        description: Delete category
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: categories-id-products
+      path: /categories/{id}/products
+      operations:
+      - name: listcategoryproducts
+        method: GET
+        description: List products in a category
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.PLATZI_FAKE_STORE_API_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platzi-fake-store-categories-rest
+    port: 8080
+    description: REST adapter for Platzi Fake Store API — Categories. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/categories
+      name: categories
+      description: REST surface for categories.
+      operations:
+      - method: GET
+        name: listcategories
+        description: List categories
+        call: platzi-fake-store-categories.listcategories
+        with:
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcategory
+        description: Create category
+        call: platzi-fake-store-categories.createcategory
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/categories/slug/{slug}
+      name: categories-slug-slug
+      description: REST surface for categories-slug-slug.
+      operations:
+      - method: GET
+        name: getcategorybyslug
+        description: Get category by slug
+        call: platzi-fake-store-categories.getcategorybyslug
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/categories/{id}
+      name: categories-id
+      description: REST surface for categories-id.
+      operations:
+      - method: GET
+        name: getcategory
+        description: Get category
+        call: platzi-fake-store-categories.getcategory
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatecategory
+        description: Update category
+        call: platzi-fake-store-categories.updatecategory
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecategory
+        description: Delete category
+        call: platzi-fake-store-categories.deletecategory
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/categories/{id}/products
+      name: categories-id-products
+      description: REST surface for categories-id-products.
+      operations:
+      - method: GET
+        name: listcategoryproducts
+        description: List products in a category
+        call: platzi-fake-store-categories.listcategoryproducts
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platzi-fake-store-categories-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Platzi Fake Store API — Categories. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: list-categories
+      description: List categories
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platzi-fake-store-categories.listcategories
+      with:
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-category
+      description: Create category
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platzi-fake-store-categories.createcategory
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-category-slug
+      description: Get category by slug
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platzi-fake-store-categories.getcategorybyslug
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-category
+      description: Get category
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platzi-fake-store-categories.getcategory
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-category
+      description: Update category
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platzi-fake-store-categories.updatecategory
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-category
+      description: Delete category
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: platzi-fake-store-categories.deletecategory
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-products-category
+      description: List products in a category
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platzi-fake-store-categories.listcategoryproducts
+      outputParameters:
+      - type: object
+        mapping: $.

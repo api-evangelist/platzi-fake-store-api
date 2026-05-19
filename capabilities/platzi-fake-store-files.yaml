@@ -1,0 +1,112 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Platzi Fake Store API — Files
+  description: 'Platzi Fake Store API — Files. 2 operations. Lead operation: Upload a file. Self-contained Naftiko capability
+    covering one Platzi Fake Store Api business surface.'
+  tags:
+  - Platzi Fake Store Api
+  - Files
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    PLATZI_FAKE_STORE_API_API_KEY: PLATZI_FAKE_STORE_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platzi-fake-store-files
+    baseUri: https://api.escuelajs.co/api/v1
+    description: Platzi Fake Store API — Files business capability. Self-contained, no shared references.
+    resources:
+    - name: files-upload
+      path: /files/upload
+      operations:
+      - name: uploadfile
+        method: POST
+        description: Upload a file
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: files-filename
+      path: /files/{filename}
+      operations:
+      - name: getfile
+        method: GET
+        description: Retrieve uploaded file
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.PLATZI_FAKE_STORE_API_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platzi-fake-store-files-rest
+    port: 8080
+    description: REST adapter for Platzi Fake Store API — Files. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/files/upload
+      name: files-upload
+      description: REST surface for files-upload.
+      operations:
+      - method: POST
+        name: uploadfile
+        description: Upload a file
+        call: platzi-fake-store-files.uploadfile
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/files/{filename}
+      name: files-filename
+      description: REST surface for files-filename.
+      operations:
+      - method: GET
+        name: getfile
+        description: Retrieve uploaded file
+        call: platzi-fake-store-files.getfile
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platzi-fake-store-files-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Platzi Fake Store API — Files. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: upload-file
+      description: Upload a file
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platzi-fake-store-files.uploadfile
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-uploaded-file
+      description: Retrieve uploaded file
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platzi-fake-store-files.getfile
+      outputParameters:
+      - type: object
+        mapping: $.
