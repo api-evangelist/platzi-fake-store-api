@@ -51,6 +51,8 @@ common:
   url: https://fakeapi.platzi.com/
 - type: GitHub
   url: https://github.com/PlatziLabs/fake-api-backend
+- type: LLMsTxt
+  url: https://platzi.com/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
