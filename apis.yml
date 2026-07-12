@@ -38,6 +38,10 @@ apis:
         url: >-
           https://raw.githubusercontent.com/api-evangelist/platzi-fake-store-api/refs/heads/main/openapi/platzi-fake-store-api-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/platzi-fake-store-api-domain-security.yml
+  - type: Authentication
+    url: authentication/platzi-fake-store-api-authentication.yml
   - type: Website
     url: https://fakeapi.platzi.com/
   - type: Documentation
