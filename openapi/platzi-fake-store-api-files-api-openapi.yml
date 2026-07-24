@@ -1,0 +1,71 @@
+openapi: 3.0.3
+info:
+  title: Platzi Fake Store Auth Files API
+  description: A free, fake REST API for testing and prototyping e-commerce or shopping site applications. Provides products, categories, users, files, and JWT authentication endpoints.
+  version: 1.0.0
+  contact:
+    name: Platzi Fake Store API
+    url: https://fakeapi.platzi.com/
+servers:
+- url: https://api.escuelajs.co/api/v1
+  description: Public sandbox
+tags:
+- name: Files
+paths:
+  /files/upload:
+    post:
+      tags:
+      - Files
+      summary: Upload a file
+      operationId: uploadFile
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Upload result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  originalname:
+                    type: string
+                  filename:
+                    type: string
+                  location:
+                    type: string
+                    format: uri
+  /files/{filename}:
+    parameters:
+    - in: path
+      name: filename
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Files
+      summary: Retrieve uploaded file
+      operationId: getFile
+      responses:
+        '200':
+          description: The file content
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,171 @@
+openapi: 3.0.3
+info:
+  title: Platzi Fake Store Auth Users API
+  description: A free, fake REST API for testing and prototyping e-commerce or shopping site applications. Provides products, categories, users, files, and JWT authentication endpoints.
+  version: 1.0.0
+  contact:
+    name: Platzi Fake Store API
+    url: https://fakeapi.platzi.com/
+servers:
+- url: https://api.escuelajs.co/api/v1
+  description: Public sandbox
+tags:
+- name: Users
+paths:
+  /users:
+    get:
+      tags:
+      - Users
+      summary: List users
+      operationId: listUsers
+      parameters:
+      - in: query
+        name: limit
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A list of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      tags:
+      - Users
+      summary: Create user
+      operationId: createUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreate'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /users/{id}:
+    parameters:
+    - $ref: '#/components/parameters/UserId'
+    get:
+      tags:
+      - Users
+      summary: Get user
+      operationId: getUser
+      responses:
+        '200':
+          description: A user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    put:
+      tags:
+      - Users
+      summary: Update user
+      operationId: updateUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreate'
+      responses:
+        '200':
+          description: Updated user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /users/is-available:
+    post:
+      tags:
+      - Users
+      summary: Check email availability
+      operationId: checkEmailAvailability
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - email
+              properties:
+                email:
+                  type: string
+                  format: email
+      responses:
+        '200':
+          description: Availability response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  isAvailable:
+                    type: boolean
+components:
+  parameters:
+    UserId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+          enum:
+          - customer
+          - admin
+        avatar:
+          type: string
+          format: uri
+    UserCreate:
+      type: object
+      required:
+      - name
+      - email
+      - password
+      - avatar
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          format: password
+        avatar:
+          type: string
+          format: uri
+        role:
+          type: string
+          enum:
+          - customer
+          - admin
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

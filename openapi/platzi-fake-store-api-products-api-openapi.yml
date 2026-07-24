@@ -1,0 +1,268 @@
+openapi: 3.0.3
+info:
+  title: Platzi Fake Store Auth Products API
+  description: A free, fake REST API for testing and prototyping e-commerce or shopping site applications. Provides products, categories, users, files, and JWT authentication endpoints.
+  version: 1.0.0
+  contact:
+    name: Platzi Fake Store API
+    url: https://fakeapi.platzi.com/
+servers:
+- url: https://api.escuelajs.co/api/v1
+  description: Public sandbox
+tags:
+- name: Products
+paths:
+  /products:
+    get:
+      tags:
+      - Products
+      summary: List products
+      operationId: listProducts
+      parameters:
+      - in: query
+        name: offset
+        schema:
+          type: integer
+      - in: query
+        name: limit
+        schema:
+          type: integer
+      - in: query
+        name: title
+        schema:
+          type: string
+      - in: query
+        name: price
+        schema:
+          type: number
+      - in: query
+        name: price_min
+        schema:
+          type: number
+      - in: query
+        name: price_max
+        schema:
+          type: number
+      - in: query
+        name: categoryId
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A list of products
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+    post:
+      tags:
+      - Products
+      summary: Create product
+      operationId: createProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductCreate'
+      responses:
+        '201':
+          description: Product created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+  /products/{id}:
+    parameters:
+    - $ref: '#/components/parameters/ProductId'
+    get:
+      tags:
+      - Products
+      summary: Get product by id
+      operationId: getProduct
+      responses:
+        '200':
+          description: A product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+    put:
+      tags:
+      - Products
+      summary: Update product
+      operationId: updateProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductUpdate'
+      responses:
+        '200':
+          description: Updated product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+    delete:
+      tags:
+      - Products
+      summary: Delete product
+      operationId: deleteProduct
+      responses:
+        '200':
+          description: Boolean true on success
+          content:
+            application/json:
+              schema:
+                type: boolean
+  /products/slug/{slug}:
+    parameters:
+    - in: path
+      name: slug
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Products
+      summary: Get product by slug
+      operationId: getProductBySlug
+      responses:
+        '200':
+          description: A product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+  /products/{id}/related:
+    parameters:
+    - $ref: '#/components/parameters/ProductId'
+    get:
+      tags:
+      - Products
+      summary: Get related products by id
+      operationId: getRelatedProducts
+      responses:
+        '200':
+          description: Related products
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+  /products/slug/{slug}/related:
+    parameters:
+    - in: path
+      name: slug
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - Products
+      summary: Get related products by slug
+      operationId: getRelatedProductsBySlug
+      responses:
+        '200':
+          description: Related products
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+components:
+  schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        image:
+          type: string
+          format: uri
+    ProductUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        price:
+          type: number
+        description:
+          type: string
+        categoryId:
+          type: integer
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
+    ProductCreate:
+      type: object
+      required:
+      - title
+      - price
+      - description
+      - categoryId
+      - images
+      properties:
+        title:
+          type: string
+        price:
+          type: number
+        description:
+          type: string
+        categoryId:
+          type: integer
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        slug:
+          type: string
+        price:
+          type: number
+        description:
+          type: string
+        category:
+          $ref: '#/components/schemas/Category'
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
+        creationAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+  parameters:
+    ProductId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
