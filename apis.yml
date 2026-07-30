@@ -4,9 +4,22 @@ description: >-
   Platzi Fake Store API is a free, fake REST API for prototyping and testing e-commerce or shopping site applications.
   It exposes products, categories, users, file upload, and JWT-based authentication endpoints with full CRUD support.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/platzi-fake-store-api.png
 tags:
   - Ecommerce
   - Fake API
@@ -20,23 +33,66 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/platzi-fake-store-api/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: platzi-fake-store-api:platzi-fake-store-api
-    name: Platzi Fake Store API
-    description: >-
-      Free, fake REST API for testing and prototyping e-commerce or shopping site applications. Provides products,
-      categories, users, files, and JWT authentication with full CRUD operations.
-    humanURL: https://fakeapi.platzi.com/
-    baseURL: https://api.escuelajs.co/api/v1
-    tags:
-      - Ecommerce
-      - Sandbox
-      - Testing
-    properties:
-      - type: Documentation
-        url: https://fakeapi.platzi.com/
-      - type: OpenAPI
-        url: >-
-          https://raw.githubusercontent.com/api-evangelist/platzi-fake-store-api/refs/heads/main/openapi/platzi-fake-store-api-openapi.yml
+- aid: platzi-fake-store-api:platzi-fake-store-api-auth-api
+  name: Platzi Fake Store API Auth API
+  description: The Auth API from Platzi Fake Store API — 3 operation(s) for auth.
+  humanURL: https://fakeapi.platzi.com/
+  baseURL: https://api.escuelajs.co/api/v1
+  tags:
+  - Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/platzi-fake-store-api-auth-api-openapi.yml
+  - type: Documentation
+    url: https://fakeapi.platzi.com/
+- aid: platzi-fake-store-api:platzi-fake-store-api-categories-api
+  name: Platzi Fake Store API Categories API
+  description: The Categories API from Platzi Fake Store API — 4 operation(s) for categories.
+  humanURL: https://fakeapi.platzi.com/
+  baseURL: https://api.escuelajs.co/api/v1
+  tags:
+  - Categories
+  properties:
+  - type: OpenAPI
+    url: openapi/platzi-fake-store-api-categories-api-openapi.yml
+  - type: Documentation
+    url: https://fakeapi.platzi.com/
+- aid: platzi-fake-store-api:platzi-fake-store-api-files-api
+  name: Platzi Fake Store API Files API
+  description: The Files API from Platzi Fake Store API — 2 operation(s) for files.
+  humanURL: https://fakeapi.platzi.com/
+  baseURL: https://api.escuelajs.co/api/v1
+  tags:
+  - Files
+  properties:
+  - type: OpenAPI
+    url: openapi/platzi-fake-store-api-files-api-openapi.yml
+  - type: Documentation
+    url: https://fakeapi.platzi.com/
+- aid: platzi-fake-store-api:platzi-fake-store-api-products-api
+  name: Platzi Fake Store API Products API
+  description: The Products API from Platzi Fake Store API — 5 operation(s) for products.
+  humanURL: https://fakeapi.platzi.com/
+  baseURL: https://api.escuelajs.co/api/v1
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/platzi-fake-store-api-products-api-openapi.yml
+  - type: Documentation
+    url: https://fakeapi.platzi.com/
+- aid: platzi-fake-store-api:platzi-fake-store-api-users-api
+  name: Platzi Fake Store API Users API
+  description: The Users API from Platzi Fake Store API — 3 operation(s) for users.
+  humanURL: https://fakeapi.platzi.com/
+  baseURL: https://api.escuelajs.co/api/v1
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/platzi-fake-store-api-users-api-openapi.yml
+  - type: Documentation
+    url: https://fakeapi.platzi.com/
 common:
   - type: AgenticAccess
     url: agentic-access/platzi-fake-store-api-agentic-access.yml
