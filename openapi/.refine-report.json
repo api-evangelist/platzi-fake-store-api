@@ -1,0 +1,22 @@
+{
+  "provider": "platzi-fake-store-api",
+  "sources": [
+    "platzi-fake-store-api-auth-api-openapi.yml",
+    "platzi-fake-store-api-categories-api-openapi.yml",
+    "platzi-fake-store-api-files-api-openapi.yml",
+    "platzi-fake-store-api-products-api-openapi.yml",
+    "platzi-fake-store-api-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "platzi-fake-store-api-auth-api-openapi.yml",
+    "platzi-fake-store-api-categories-api-openapi.yml",
+    "platzi-fake-store-api-files-api-openapi.yml",
+    "platzi-fake-store-api-products-api-openapi.yml",
+    "platzi-fake-store-api-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
