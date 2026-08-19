@@ -1,0 +1,791 @@
+{
+  "item": [
+    {
+      "id": "d0bfc969-fa57-430e-9a5b-9f7644ced2eb",
+      "name": "Products",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fa605dee-8f3a-40d4-8f74-2922cc1865df",
+          "name": "List products",
+          "request": {
+            "name": "List products",
+            "description": {},
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "price",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "price_min",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "price_max",
+                  "value": "<number>"
+                },
+                {
+                  "disabled": false,
+                  "key": "categoryId",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b116bff9-aa51-4a8b-838c-a07acc50ecc9",
+              "name": "A list of products",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "price",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "price_min",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "price_max",
+                      "value": "<number>"
+                    },
+                    {
+                      "key": "categoryId",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8186,\n    \"title\": \"string\",\n    \"slug\": \"string\",\n    \"price\": 4601.191644986338,\n    \"description\": \"string\",\n    \"category\": {\n      \"id\": 1462,\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"image\": \"http://YhhKEzWXsPpxKnZuFu.evalcjn.Li5N2bX3VqG-Ff69j-HcqhoSI5sDaI1c\"\n    },\n    \"images\": [\n      \"http://ugEOFxzLFYTgKieiRW.ldj9-R3L1AA7CO7tMP,aaDQXZ3SCeVGVF3zDTVpRr4eeXqOwwGRAdtlQFFy3jlRahosQ-Q\",\n      \"http://wnTiHRAuUZI.adyOnGKyUg3Lc5IdpvimsXYv+ct9Q2lfFrrKO5,GvecgT2uKb87bs\"\n    ],\n    \"creationAt\": \"1948-07-31T22:46:55.513Z\",\n    \"updatedAt\": \"2026-01-05T19:13:05.849Z\"\n  },\n  {\n    \"id\": 670,\n    \"title\": \"string\",\n    \"slug\": \"string\",\n    \"price\": 4562.910826886929,\n    \"description\": \"string\",\n    \"category\": {\n      \"id\": 6618,\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"image\": \"https://wPLDFEwVvizLBejoRv.ejynNhMMVZHzue\"\n    },\n    \"images\": [\n      \"https://WYEqJHKtiTQgWQgNXDCzqae.yhuuEqvf2AqyOkXNxh7.8QGR4H0fW0Ly,-0h0eLimWEOrBEV\",\n      \"https://DVtChobcIMZZQcSPZqHQz.naGYnPpUpsAzYFThJPDDhCEJIAAq41YkLOcKi85xJ-MoQkscosjkWeEfAlKa8KvxL2Fp1pi\"\n    ],\n    \"creationAt\": \"2024-02-24T15:05:13.424Z\",\n    \"updatedAt\": \"2001-11-30T19:31:22.769Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b214947e-3ed9-4e21-91f4-c21257e0ddfc",
+          "name": "Create product",
+          "request": {
+            "name": "Create product",
+            "description": {},
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"price\": \"<number>\",\n  \"description\": \"<string>\",\n  \"categoryId\": \"<integer>\",\n  \"images\": [\n    \"<uri>\",\n    \"<uri>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a2726498-3210-45e4-9e9e-c9b12ba5081f",
+              "name": "Product created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"price\": \"<number>\",\n  \"description\": \"<string>\",\n  \"categoryId\": \"<integer>\",\n  \"images\": [\n    \"<uri>\",\n    \"<uri>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4887,\n  \"title\": \"string\",\n  \"slug\": \"string\",\n  \"price\": 3531.031449293596,\n  \"description\": \"string\",\n  \"category\": {\n    \"id\": 1283,\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"image\": \"https://AcCH.qmxqie6,HnpZGhkFkLX6IYfCpD2SvntQPPwXp,WhwHy798Z1O2zPDp3S6W.t\"\n  },\n  \"images\": [\n    \"http://mkW.xgalZgxtyFzmJEhOJ1xrbK-b,3kBnGwT+IBlj1wnKUyJ\",\n    \"https://FvTHKgntafTMtnAYBkinmIlD.ffqJO3sy-rV6grGf4sBCW\"\n  ],\n  \"creationAt\": \"1985-02-13T00:17:34.226Z\",\n  \"updatedAt\": \"1975-04-29T21:11:52.924Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1efd580-d04f-493b-b150-b99b342dd313",
+          "name": "Get product by id",
+          "request": {
+            "name": "Get product by id",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3d783107-7258-4c74-be46-eee9a34c4e28",
+              "name": "A product",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4887,\n  \"title\": \"string\",\n  \"slug\": \"string\",\n  \"price\": 3531.031449293596,\n  \"description\": \"string\",\n  \"category\": {\n    \"id\": 1283,\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"image\": \"https://AcCH.qmxqie6,HnpZGhkFkLX6IYfCpD2SvntQPPwXp,WhwHy798Z1O2zPDp3S6W.t\"\n  },\n  \"images\": [\n    \"http://mkW.xgalZgxtyFzmJEhOJ1xrbK-b,3kBnGwT+IBlj1wnKUyJ\",\n    \"https://FvTHKgntafTMtnAYBkinmIlD.ffqJO3sy-rV6grGf4sBCW\"\n  ],\n  \"creationAt\": \"1985-02-13T00:17:34.226Z\",\n  \"updatedAt\": \"1975-04-29T21:11:52.924Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a2919c7-ae39-4efe-b979-6e87cc0bf88f",
+          "name": "Update product",
+          "request": {
+            "name": "Update product",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"price\": \"<number>\",\n  \"description\": \"<string>\",\n  \"categoryId\": \"<integer>\",\n  \"images\": [\n    \"<uri>\",\n    \"<uri>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "eba1b3a7-ecc6-4608-8b6c-c274a6ffe18e",
+              "name": "Updated product",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"price\": \"<number>\",\n  \"description\": \"<string>\",\n  \"categoryId\": \"<integer>\",\n  \"images\": [\n    \"<uri>\",\n    \"<uri>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4887,\n  \"title\": \"string\",\n  \"slug\": \"string\",\n  \"price\": 3531.031449293596,\n  \"description\": \"string\",\n  \"category\": {\n    \"id\": 1283,\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"image\": \"https://AcCH.qmxqie6,HnpZGhkFkLX6IYfCpD2SvntQPPwXp,WhwHy798Z1O2zPDp3S6W.t\"\n  },\n  \"images\": [\n    \"http://mkW.xgalZgxtyFzmJEhOJ1xrbK-b,3kBnGwT+IBlj1wnKUyJ\",\n    \"https://FvTHKgntafTMtnAYBkinmIlD.ffqJO3sy-rV6grGf4sBCW\"\n  ],\n  \"creationAt\": \"1985-02-13T00:17:34.226Z\",\n  \"updatedAt\": \"1975-04-29T21:11:52.924Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "917cab84-eab7-4fbe-b7eb-7792f4fc9ec8",
+          "name": "Delete product",
+          "request": {
+            "name": "Delete product",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d58d3db5-afc5-40fa-b379-ed5cb9139c98",
+              "name": "Boolean true on success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "false",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae1d3a79-bd7b-448e-9107-e052c7862460",
+          "name": "Get product by slug",
+          "request": {
+            "name": "Get product by slug",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "slug",
+                ":slug"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf7b124a-69fa-4089-b9e8-527e4ca73c39",
+              "name": "A product",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "slug",
+                    ":slug"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4887,\n  \"title\": \"string\",\n  \"slug\": \"string\",\n  \"price\": 3531.031449293596,\n  \"description\": \"string\",\n  \"category\": {\n    \"id\": 1283,\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"image\": \"https://AcCH.qmxqie6,HnpZGhkFkLX6IYfCpD2SvntQPPwXp,WhwHy798Z1O2zPDp3S6W.t\"\n  },\n  \"images\": [\n    \"http://mkW.xgalZgxtyFzmJEhOJ1xrbK-b,3kBnGwT+IBlj1wnKUyJ\",\n    \"https://FvTHKgntafTMtnAYBkinmIlD.ffqJO3sy-rV6grGf4sBCW\"\n  ],\n  \"creationAt\": \"1985-02-13T00:17:34.226Z\",\n  \"updatedAt\": \"1975-04-29T21:11:52.924Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6f22d06-b6d3-47b8-a71c-94a6033a2860",
+          "name": "Get related products by id",
+          "request": {
+            "name": "Get related products by id",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":id",
+                "related"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "99f94dcd-ba31-43ee-bdf5-ed2862dcac84",
+              "name": "Related products",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":id",
+                    "related"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8909,\n    \"title\": \"string\",\n    \"slug\": \"string\",\n    \"price\": 2980.896290651395,\n    \"description\": \"string\",\n    \"category\": {\n      \"id\": 5986,\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"image\": \"https://vHSPptMIflqICtPwTjrhYx.nwDj33AYg3N+ZOvwOZDG2XtQxIqRnGtc.G3nKO5Ls0jerD8kwlh0IRnoTOVjW\"\n    },\n    \"images\": [\n      \"https://kmonoB.kuyRQrKUIGyUjQOPIvPfWf-5fLUq-28,rTAlOlPDc0E\",\n      \"http://iSYnegqKOJtpGYzeLl.eadlDbRccljt,aDdGlA-+TX\"\n    ],\n    \"creationAt\": \"1967-05-06T20:03:13.606Z\",\n    \"updatedAt\": \"2025-02-05T18:07:57.429Z\"\n  },\n  {\n    \"id\": 9592,\n    \"title\": \"string\",\n    \"slug\": \"string\",\n    \"price\": 2538.4114345128237,\n    \"description\": \"string\",\n    \"category\": {\n      \"id\": 6013,\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"image\": \"https://iMkMkSVWQXRxAvnDpVdAebftVWFADX.mbvDA2Omhn4wCsg\"\n    },\n    \"images\": [\n      \"http://gzCwjUqTlatUSEJMbKPhAl.brlRZkVNzTdhVpzqcPUpFahoDk+\",\n      \"http://pRRwjwFx.kvzB3H17RCuyaCa6HLIB2KYgiZ\"\n    ],\n    \"creationAt\": \"1963-09-12T20:45:49.661Z\",\n    \"updatedAt\": \"2020-02-07T06:12:07.288Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7cc0d132-5cba-4020-bbfe-ab33e189f21f",
+          "name": "Get related products by slug",
+          "request": {
+            "name": "Get related products by slug",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "slug",
+                ":slug",
+                "related"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "slug",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23d2f514-9e89-48da-bf95-909fef6120c0",
+              "name": "Related products",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "slug",
+                    ":slug",
+                    "related"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "slug",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8909,\n    \"title\": \"string\",\n    \"slug\": \"string\",\n    \"price\": 2980.896290651395,\n    \"description\": \"string\",\n    \"category\": {\n      \"id\": 5986,\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"image\": \"https://vHSPptMIflqICtPwTjrhYx.nwDj33AYg3N+ZOvwOZDG2XtQxIqRnGtc.G3nKO5Ls0jerD8kwlh0IRnoTOVjW\"\n    },\n    \"images\": [\n      \"https://kmonoB.kuyRQrKUIGyUjQOPIvPfWf-5fLUq-28,rTAlOlPDc0E\",\n      \"http://iSYnegqKOJtpGYzeLl.eadlDbRccljt,aDdGlA-+TX\"\n    ],\n    \"creationAt\": \"1967-05-06T20:03:13.606Z\",\n    \"updatedAt\": \"2025-02-05T18:07:57.429Z\"\n  },\n  {\n    \"id\": 9592,\n    \"title\": \"string\",\n    \"slug\": \"string\",\n    \"price\": 2538.4114345128237,\n    \"description\": \"string\",\n    \"category\": {\n      \"id\": 6013,\n      \"name\": \"string\",\n      \"slug\": \"string\",\n      \"image\": \"https://iMkMkSVWQXRxAvnDpVdAebftVWFADX.mbvDA2Omhn4wCsg\"\n    },\n    \"images\": [\n      \"http://gzCwjUqTlatUSEJMbKPhAl.brlRZkVNzTdhVpzqcPUpFahoDk+\",\n      \"http://pRRwjwFx.kvzB3H17RCuyaCa6HLIB2KYgiZ\"\n    ],\n    \"creationAt\": \"1963-09-12T20:45:49.661Z\",\n    \"updatedAt\": \"2020-02-07T06:12:07.288Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.escuelajs.co/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f22417d7-6f82-4ff4-852a-4d0ea6e2aba4",
+    "name": "Platzi Fake Store Auth Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A free, fake REST API for testing and prototyping e-commerce or shopping site applications. Provides products, categories, users, files, and JWT authentication endpoints.\n\nContact Support:\n Name: Platzi Fake Store API",
+      "type": "text/plain"
+    }
+  }
+}
