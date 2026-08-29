@@ -4,6 +4,17 @@ description: >-
   Platzi Fake Store API is a free, fake REST API for prototyping and testing e-commerce or shopping site applications.
   It exposes products, categories, users, file upload, and JWT-based authentication endpoints with full CRUD support.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
