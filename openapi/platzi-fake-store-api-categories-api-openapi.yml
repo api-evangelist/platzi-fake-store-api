@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Platzi Fake Store Auth Categories API
+  title: Platzi Fake Store Categories API
   description: A free, fake REST API for testing and prototyping e-commerce or shopping site applications. Provides products, categories, users, files, and JWT authentication endpoints.
   version: 1.0.0
   contact:
@@ -133,6 +133,18 @@ paths:
                   $ref: '#/components/schemas/Product'
 components:
   schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        image:
+          type: string
+          format: uri
     Product:
       type: object
       properties:
@@ -159,18 +171,6 @@ components:
         updatedAt:
           type: string
           format: date-time
-    Category:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        slug:
-          type: string
-        image:
-          type: string
-          format: uri
     CategoryCreate:
       type: object
       required:
