@@ -133,29 +133,6 @@ paths:
                   $ref: '#/components/schemas/Product'
 components:
   schemas:
-    CategoryCreate:
-      type: object
-      required:
-      - name
-      - image
-      properties:
-        name:
-          type: string
-        image:
-          type: string
-          format: uri
-    Category:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        slug:
-          type: string
-        image:
-          type: string
-          format: uri
     Product:
       type: object
       properties:
@@ -182,6 +159,29 @@ components:
         updatedAt:
           type: string
           format: date-time
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        image:
+          type: string
+          format: uri
+    CategoryCreate:
+      type: object
+      required:
+      - name
+      - image
+      properties:
+        name:
+          type: string
+        image:
+          type: string
+          format: uri
   parameters:
     CategoryId:
       in: path

@@ -178,6 +178,22 @@ paths:
                   $ref: '#/components/schemas/Product'
 components:
   schemas:
+    ProductUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        price:
+          type: number
+        description:
+          type: string
+        categoryId:
+          type: integer
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
     Product:
       type: object
       properties:
@@ -204,18 +220,6 @@ components:
         updatedAt:
           type: string
           format: date-time
-    Category:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        slug:
-          type: string
-        image:
-          type: string
-          format: uri
     ProductCreate:
       type: object
       required:
@@ -238,22 +242,18 @@ components:
           items:
             type: string
             format: uri
-    ProductUpdate:
+    Category:
       type: object
       properties:
-        title:
-          type: string
-        price:
-          type: number
-        description:
-          type: string
-        categoryId:
+        id:
           type: integer
-        images:
-          type: array
-          items:
-            type: string
-            format: uri
+        name:
+          type: string
+        slug:
+          type: string
+        image:
+          type: string
+          format: uri
   parameters:
     ProductId:
       in: path
