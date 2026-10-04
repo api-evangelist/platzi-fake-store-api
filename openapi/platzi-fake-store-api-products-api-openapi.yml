@@ -177,9 +177,50 @@ paths:
                 items:
                   $ref: '#/components/schemas/Product'
 components:
+  parameters:
+    ProductId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
   schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        slug:
+          type: string
+        image:
+          type: string
+          format: uri
     ProductUpdate:
       type: object
+      properties:
+        title:
+          type: string
+        price:
+          type: number
+        description:
+          type: string
+        categoryId:
+          type: integer
+        images:
+          type: array
+          items:
+            type: string
+            format: uri
+    ProductCreate:
+      type: object
+      required:
+      - title
+      - price
+      - description
+      - categoryId
+      - images
       properties:
         title:
           type: string
@@ -220,47 +261,6 @@ components:
         updatedAt:
           type: string
           format: date-time
-    ProductCreate:
-      type: object
-      required:
-      - title
-      - price
-      - description
-      - categoryId
-      - images
-      properties:
-        title:
-          type: string
-        price:
-          type: number
-        description:
-          type: string
-        categoryId:
-          type: integer
-        images:
-          type: array
-          items:
-            type: string
-            format: uri
-    Category:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        slug:
-          type: string
-        image:
-          type: string
-          format: uri
-  parameters:
-    ProductId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: integer
   securitySchemes:
     bearerAuth:
       type: http

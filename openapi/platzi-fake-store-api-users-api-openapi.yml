@@ -112,7 +112,34 @@ paths:
                   isAvailable:
                     type: boolean
 components:
+  parameters:
+    UserId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
   schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+        name:
+          type: string
+        role:
+          type: string
+          enum:
+          - customer
+          - admin
+        avatar:
+          type: string
+          format: uri
     UserCreate:
       type: object
       required:
@@ -137,33 +164,6 @@ components:
           enum:
           - customer
           - admin
-    User:
-      type: object
-      properties:
-        id:
-          type: integer
-        email:
-          type: string
-          format: email
-        password:
-          type: string
-        name:
-          type: string
-        role:
-          type: string
-          enum:
-          - customer
-          - admin
-        avatar:
-          type: string
-          format: uri
-  parameters:
-    UserId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: integer
   securitySchemes:
     bearerAuth:
       type: http
