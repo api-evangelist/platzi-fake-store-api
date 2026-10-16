@@ -60,7 +60,7 @@ apis:
 - aid: platzi-fake-store-api:platzi-fake-store-api-auth-api
   name: Platzi Fake Store API Auth API
   description: The Auth API from Platzi Fake Store API — 3 operation(s) for auth.
-  humanURL: https://fakeapi.platzi.com/
+  humanURL: https://api.escuelajs.co/docs
   baseURL: https://api.escuelajs.co/api/v1
   tags:
   - Authentication
@@ -70,11 +70,11 @@ apis:
   - type: OpenAPI
     url: openapi/platzi-fake-store-api-auth-api-openapi.yml
   - type: Documentation
-    url: https://fakeapi.platzi.com/
+    url: https://api.escuelajs.co/docs
 - aid: platzi-fake-store-api:platzi-fake-store-api-categories-api
   name: Platzi Fake Store API Categories API
   description: The Categories API from Platzi Fake Store API — 4 operation(s) for categories.
-  humanURL: https://fakeapi.platzi.com/
+  humanURL: https://api.escuelajs.co/docs
   baseURL: https://api.escuelajs.co/api/v1
   tags:
   - Categories
@@ -82,11 +82,11 @@ apis:
   - type: OpenAPI
     url: openapi/platzi-fake-store-api-categories-api-openapi.yml
   - type: Documentation
-    url: https://fakeapi.platzi.com/
+    url: https://api.escuelajs.co/docs
 - aid: platzi-fake-store-api:platzi-fake-store-api-files-api
   name: Platzi Fake Store API Files API
   description: The Files API from Platzi Fake Store API — 2 operation(s) for files.
-  humanURL: https://fakeapi.platzi.com/
+  humanURL: https://api.escuelajs.co/docs
   baseURL: https://api.escuelajs.co/api/v1
   tags:
   - File
@@ -96,11 +96,11 @@ apis:
   - type: OpenAPI
     url: openapi/platzi-fake-store-api-files-api-openapi.yml
   - type: Documentation
-    url: https://fakeapi.platzi.com/
+    url: https://api.escuelajs.co/docs
 - aid: platzi-fake-store-api:platzi-fake-store-api-products-api
   name: Platzi Fake Store API Products API
   description: The Products API from Platzi Fake Store API — 5 operation(s) for products.
-  humanURL: https://fakeapi.platzi.com/
+  humanURL: https://api.escuelajs.co/docs
   baseURL: https://api.escuelajs.co/api/v1
   tags:
   - Product
@@ -110,11 +110,11 @@ apis:
   - type: OpenAPI
     url: openapi/platzi-fake-store-api-products-api-openapi.yml
   - type: Documentation
-    url: https://fakeapi.platzi.com/
+    url: https://api.escuelajs.co/docs
 - aid: platzi-fake-store-api:platzi-fake-store-api-users-api
   name: Platzi Fake Store API Users API
   description: The Users API from Platzi Fake Store API — 3 operation(s) for users.
-  humanURL: https://fakeapi.platzi.com/
+  humanURL: https://api.escuelajs.co/docs
   baseURL: https://api.escuelajs.co/api/v1
   tags:
   - User
@@ -124,7 +124,7 @@ apis:
   - type: OpenAPI
     url: openapi/platzi-fake-store-api-users-api-openapi.yml
   - type: Documentation
-    url: https://fakeapi.platzi.com/
+    url: https://api.escuelajs.co/docs
 common:
   - type: Plans
     url: plans/platzi-fake-store-api-plans-pricing.yml
@@ -139,9 +139,9 @@ common:
   - type: Authentication
     url: authentication/platzi-fake-store-api-authentication.yml
   - type: Website
-    url: https://fakeapi.platzi.com/
+    url: https://api.escuelajs.co/docs
   - type: Documentation
-    url: https://fakeapi.platzi.com/
+    url: https://api.escuelajs.co/docs
   - type: GitHub
     url: https://github.com/PlatziLabs/fake-api-backend
   - type: LlmsText
