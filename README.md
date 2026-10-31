@@ -1,4 +1,4 @@
-# Platzi Fake Store API (platzi-fake-store-api)
+# Platzi Fake Store API
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,59 +66,122 @@
 
 Platzi Fake Store API is a free, fake REST API for prototyping and testing e-commerce or shopping site applications. It exposes products, categories, users, file upload, and JWT-based authentication endpoints with full CRUD support.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/platzi-fake-store-api/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/platzi-fake-store-api/refs/heads/main/apis.yml)
+**Areas:** E-Commerce · Fake API · JWT · Prototyping · Sandbox · Sample Data · Testing
 
-## Scope
+## Platzi Fake Store API on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Platzi Fake Store API is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/platzi-fake-store-api/](https://apis.io/providers/platzi-fake-store-api/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (5)
 
-- Ecommerce
-- Fake API
-- JWT
-- Prototyping
-- Sandbox
-- Sample Data
-- Testing
+- [Platzi Fake Store API Auth API](https://apis.io/apis/platzi-fake-store-api/platzi-fake-store-api-auth-api/) — The Auth API from Platzi Fake Store API — 3 operation(s) for auth.
+- [Platzi Fake Store API Categories API](https://apis.io/apis/platzi-fake-store-api/platzi-fake-store-api-categories-api/) — The Categories API from Platzi Fake Store API — 4 operation(s) for categories.
+- [Platzi Fake Store API Files API](https://apis.io/apis/platzi-fake-store-api/platzi-fake-store-api-files-api/) — The Files API from Platzi Fake Store API — 2 operation(s) for files.
+- [Platzi Fake Store API Products API](https://apis.io/apis/platzi-fake-store-api/platzi-fake-store-api-products-api/) — The Products API from Platzi Fake Store API — 5 operation(s) for products.
+- [Platzi Fake Store API Users API](https://apis.io/apis/platzi-fake-store-api/platzi-fake-store-api-users-api/) — The Users API from Platzi Fake Store API — 3 operation(s) for users.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-02-24
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Platzi Fake Store API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Free, fake REST API for testing and prototyping e-commerce or shopping site applications. Provides products, categories, users, files, and JWT authentication with full CRUD operations.
+- [Platzi Fake Store Api Agentic Access](https://apis.io/agentic-access/platzi-fake-store-api/platzi-fake-store-api-agentic-access/)
 
-- **Human URL:** [https://fakeapi.platzi.com/](https://fakeapi.platzi.com/)
-- **Base URL:** `https://api.escuelajs.co/api/v1`
+#### Collections (6)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Ecommerce
-- Sandbox
-- Testing
+- [Platzi Fake Store API](https://apis.io/collections/platzi-fake-store-api/open-platzi-fake-store-api/)
+- [Platzi Fake Store Auth API](https://apis.io/collections/platzi-fake-store-api/open-platzi-fake-store-api-auth-api/)
+- [Platzi Fake Store Auth Categories API](https://apis.io/collections/platzi-fake-store-api/open-platzi-fake-store-api-categories-api/)
+- [Platzi Fake Store Auth Files API](https://apis.io/collections/platzi-fake-store-api/open-platzi-fake-store-api-files-api/)
+- [Platzi Fake Store Auth Products API](https://apis.io/collections/platzi-fake-store-api/open-platzi-fake-store-api-products-api/)
+- [Platzi Fake Store Auth Users API](https://apis.io/collections/platzi-fake-store-api/open-platzi-fake-store-api-users-api/)
 
-#### Properties
+#### Security (2)
 
-- [Documentation](https://fakeapi.platzi.com/)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/platzi-fake-store-api/refs/heads/main/openapi/platzi-fake-store-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/platzi-fake-store-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/platzi-fake-store-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Platzi Fake Store Api Authentication](https://apis.io/security/platzi-fake-store-api/platzi-fake-store-api-authentication/)
+- [Platzi Fake Store Api Domain Security](https://apis.io/security/platzi-fake-store-api/platzi-fake-store-api-domain-security/)
 
-- [Website](https://fakeapi.platzi.com/)
-- [Documentation](https://fakeapi.platzi.com/)
-- [Git Hub](https://github.com/PlatziLabs/fake-api-backend)
-- [L L Ms Txt](https://platzi.com/llms.txt)
+#### Plans and pricing (1)
 
-## Maintainers
+Published plans, tiers and prices.
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+- [Platzi Fake Store Api Plans Pricing](https://apis.io/plans/platzi-fake-store-api/platzi-fake-store-api-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Platzi Fake Store Api Rate Limits](https://apis.io/rate-limits/platzi-fake-store-api/platzi-fake-store-api-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Platzi Fake Store Api Finops](https://apis.io/finops/platzi-fake-store-api/platzi-fake-store-api-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://api.escuelajs.co/docs)
+- [Documentation](https://api.escuelajs.co/docs)
+
+## API Evangelist rating
+
+**Kin Score 25.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 45.6 |
+| Contract governance | 0.0 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 21.4 |
+| Access clarity | 7.9 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/platzi-fake-store-api/](https://apis.io/providers/platzi-fake-store-api/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Platzi Fake Store API: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/platzi-fake-store-api/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
